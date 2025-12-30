@@ -3,332 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUANTAR PROTOCOL | Post-Quantum Blockchain</title>
+    <title>Quantar Protocol | A Nova Era da Economia Neural</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        /* --- ESTILO GERAL (Cyberpunk Vibe) --- */
         :root {
-            --bg-color: #050507;
-            --card-bg: #0f0f13;
-            --primary: #00f3ff; /* Ciano Neon */
-            --secondary: #bd00ff; /* Roxo Neon */
-            --text: #e0e0e0;
-            --font-main: 'Segoe UI', sans-serif;
-            --font-code: 'Courier New', monospace;
+            --neon-green: #00ff88;
+            --neon-blue: #00d4ff;
+            --dark-bg: #05050a;
+            --cyber-panel: #0a0a12;
+            --text-glow: 0 0 10px rgba(0, 255, 136, 0.5);
         }
 
         body {
             margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text);
-            font-family: var(--font-main);
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-bg);
+            color: #fff;
             overflow-x: hidden;
+            background-image: url('https://images.unsplash.com/photo-1535378917042-67c6263e5ea1?q=80&w=2070&auto=format&fit=crop'); /* Imagem de fundo Cyberpunk */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
         }
 
-        /* Efeito de Malha de Fundo */
-        body::before {
+        /* Efeito de Scanline na tela inteira */
+        body::after {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: 
-                linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            background-size: 100% 2px, 3px 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15) 0px,
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
             pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Overlay escuro para melhorar leitura */
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(5, 5, 10, 0.85);
             z-index: -1;
         }
 
-        a { text-decoration: none; color: white; transition: 0.3s; }
-        ul { list-style: none; padding: 0; }
-
-        /* --- HEADER --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            position: fixed;
-            width: 90%;
-            top: 0;
-            z-index: 100;
-            background: rgba(5, 5, 7, 0.8);
-        }
-
-        .logo {
-            font-family: var(--font-code);
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary);
-            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
-        }
-
-        .nav-links a {
-            margin-left: 30px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        .nav-links a:hover { color: var(--primary); }
-
-        /* --- HERO SECTION (A Capa) --- */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start; 
-            align-items: center;
-            text-align: center;
-            padding: 160px 20px 50px 20px; 
-        }
-
-        /* ESTILO DA LOGO CENTRAL (AUMENTADO AQUI) */
-        .hero-logo {
-            width: 320px; /* <-- MUDANÇA: Aumentado de 220px para 320px */
-            max-width: 80%;
-            margin-bottom: 20px; 
-            filter: drop-shadow(0 0 25px rgba(0, 243, 255, 0.4));
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero h1 {
-            font-size: 80px;
-            margin: 0;
-            line-height: 1;
-            background: -webkit-linear-gradient(45deg, #fff, #888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -2px;
-        }
-
-        .hero h2 {
-            font-family: var(--font-code);
-            color: var(--primary);
-            font-size: 20px;
-            margin-top: 10px;
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            animation: glow 2s ease-in-out infinite alternate;
+            letter-spacing: 2px;
         }
 
-        .hero p {
-            max-width: 600px;
-            margin: 30px auto;
-            color: #888;
-            font-size: 18px;
-            line-height: 1.6;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 20;
         }
 
-        /* Botão Principal */
-        .btn-group { margin-top: 20px; margin-bottom: 30px; }
+        /* HEADER / HERO SECTION */
+        header {
+            text-align: center;
+            padding: 100px 20px;
+            border-bottom: 2px solid var(--neon-green);
+            box-shadow: 0 10px 30px -10px rgba(0, 255, 136, 0.3);
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px var(--neon-green), 0 0 40px var(--neon-green);
+        }
+
+        header p {
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        /* BOTÕES */
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
         .btn {
-            padding: 15px 40px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-family: var(--font-code);
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 16px;
-            border: 1px solid transparent;
             display: inline-block;
+            padding: 15px 40px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn-primary {
-            background: var(--primary);
-            color: black;
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
-        }
-        .btn-primary:hover {
-            background: white;
-            box-shadow: 0 0 40px rgba(0, 243, 255, 0.6);
-            transform: scale(1.05);
+        /* Botão de Download Principal (Pulsante) */
+        .btn-download {
+            background-color: var(--neon-green);
+            color: #000;
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 20px var(--neon-green);
+            animation: pulse 2s infinite;
         }
 
-        /* Links de Idiomas */
-        .lang-links a {
-            margin: 0 15px;
-            font-size: 14px;
-            border-bottom: 1px solid transparent;
-            padding-bottom: 2px;
-        }
-        .lang-links a:hover {
-            color: var(--primary);
-            border-bottom: 1px solid var(--primary);
+        .btn-download:hover {
+            background-color: #fff;
+            box-shadow: 0 0 40px var(--neon-green);
         }
 
-        /* --- FEATURES --- */
-        .features {
+        /* Botão Secundário (Whitepaper) */
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--neon-blue);
+            border: 2px solid var(--neon-blue);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(0, 212, 255, 0.1);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 15px var(--neon-green); }
+            50% { box-shadow: 0 0 30px var(--neon-green), 0 0 50px var(--neon-green); }
+            100% { box-shadow: 0 0 15px var(--neon-green); }
+        }
+
+        /* SEÇÃO DE ARTIGOS (FEATURES) */
+        .articles-section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--neon-green);
+            text-shadow: var(--text-glow);
+        }
+
+        .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            padding: 100px 50px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
-        .card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.3s;
+        .article-card {
+            background: var(--cyber-panel);
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
         }
-        .card:hover {
+
+        .article-card:hover {
             transform: translateY(-10px);
-            border-color: var(--primary);
+            border-color: var(--neon-green);
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.2);
         }
 
-        .card-icon { font-size: 40px; margin-bottom: 20px; }
-        .card h3 { color: white; margin-bottom: 10px; }
-        .card p { color: #888; font-size: 14px; line-height: 1.6; }
-
-        /* --- ROADMAP --- */
-        .roadmap-section {
-            padding: 100px 20px;
-            text-align: center;
-            background: linear-gradient(to bottom, var(--bg-color), #0a0a0e);
-        }
-        .roadmap-section h2 { font-size: 36px; margin-bottom: 50px; }
-
-        .roadmap-container {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
+        /* Imagens dos Artigos (Placeholders Futuristas) */
+        .card-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            border-bottom: 1px solid var(--neon-green);
         }
         
-        .phase {
-            text-align: left;
-            border-left: 2px solid var(--secondary);
-            padding-left: 20px;
-            max-width: 250px;
-        }
-        .phase h4 { color: var(--secondary); margin: 0 0 10px 0; font-family: var(--font-code); }
-        .phase ul li { color: #888; margin-bottom: 8px; font-size: 14px; }
-        .phase ul li::before { content: "• "; color: var(--primary); }
+        /* Imagens temáticas para cada card */
+        .img-security { background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop'); }
+        .img-mining { background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop'); }
+        .img-ecosystem { background-image: url('https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=1932&auto=format&fit=crop'); }
 
-        /* --- FOOTER --- */
+        .card-image::after {
+            content: '';
+            position: absolute;
+            top:0; left:0; width:100%; height:100%;
+            background: linear-gradient(0deg, var(--cyber-panel), transparent);
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            color: var(--neon-green);
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+
+        .card-content p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
         footer {
-            padding: 50px;
+            background: #020205;
+            padding: 40px 20px;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-            color: #555;
-        }
-        footer a { color: var(--primary); }
-
-        /* Animações */
-        @keyframes glow {
-            from { text-shadow: 0 0 10px rgba(0, 243, 255, 0.2); }
-            to { text-shadow: 0 0 20px rgba(0, 243, 255, 0.8), 0 0 30px var(--primary); }
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            border-top: 2px solid var(--neon-blue);
+            margin-top: 50px;
         }
 
-        /* Responsivo */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 50px; }
-            header { padding: 20px; }
-            .nav-links { display: none; }
-            .lang-links a { display: block; margin: 10px 0; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo">QUANTAR_Protocol</div>
-        <nav class="nav-links">
-            <a href="#features">Tecnologia</a>
-            <a href="#roadmap">Roadmap</a>
-            <a href="explorer.html" target="_blank" style="color: #00f3ff;">⚡ NETWORK STATUS</a>
-            <a href="https://github.com/chaveirobatelcuritiba/aegis-core" target="_blank">GitHub</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        
-        <img src="imagem_cripto_1.png" alt="Quantar Logo" class="hero-logo">
-
-        <h2>Blindado contra o Futuro</h2>
-        <h1>QUANTAR</h1>
-        <p>
-            A primeira blockchain Layer-1 construída em <b>Rust</b> com segurança Pós-Quântica (Dilithium-5).<br>
-            Rápida. Descentralizada. Imutável.
-        </p>
-        
-        <div class="btn-group">
-            <a href="https://github.com/chaveirobatelcuritiba/aegis-core/releases" target="_blank" class="btn btn-primary">
-                ⛏️ BAIXAR APP v1.2 (Miner + Vault)
-            </a>
-        </div>
-
-        <div class="lang-links" style="font-family: var(--font-code);">
-            <div style="color: #666; font-size: 12px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px;">Ler Whitepaper:</div>
-            <a href="Whitepaper_PT.pdf" target="_blank">🇧🇷 Português</a>
-            <a href="Whitepaper_EN.pdf" target="_blank" style="color: var(--primary);">🇺🇸 English</a>
-            <a href="Whitepaper_ES.pdf" target="_blank">🇪🇸 Español</a>
-        </div>
-    </section>
-
-    <section id="features" class="features">
-        <div class="card">
-            <div class="card-icon">⚛️</div>
-            <h3>Pós-Quântico</h3>
-            <p>Utiliza assinaturas CRYSTALS-Dilithium (Nível 5), protegendo seus ativos contra ataques de computadores quânticos futuros (Q-Day).</p>
-        </div>
-        <div class="card">
-            <div class="card-icon">🦀</div>
-            <h3>Rust Core</h3>
-            <p>Escrito 100% em Rust. Sem Garbage Collector, sem pausas. Validação de blocos em microssegundos e segurança de memória garantida.</p>
-        </div>
-        <div class="card">
-            <div class="card-icon">💎</div>
-            <h3>Escassez Real</h3>
-            <p>Economia deflacionária programada matematicamente no código. Halving automático e Supply limitado para preservação de valor.</p>
-        </div>
-    </section>
-
-    <section id="roadmap" class="roadmap-section">
-        <h2>Plano de Voo</h2>
-        <div class="roadmap-container">
-            <div class="phase">
-                <h4>FASE 1: GENESIS</h4>
-                <ul>
-                    <li>Lançamento Mainnet v1.0</li>
-                    <li>Mineração CPU Ativa</li>
-                    <li>Whitepaper Release</li>
-                </ul>
-            </div>
-            <div class="phase">
-                <h4>FASE 2: EXPANSÃO</h4>
-                <ul>
-                    <li>Carteira Desktop (GUI)</li>
-                    <li>Listagem em Agregadores</li>
-                    <li>Otimização de Hash</li>
-                </ul>
-            </div>
-            <div class="phase">
-                <h4>FASE 3: ECOSSISTEMA</h4>
-                <ul>
-                    <li>Smart Contracts (WASM)</li>
-                    <li>Listagem em Exchange</li>
-                    <li>Auditoria Certik</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>Quantar Protocol © 2025. Developed by Chaveiro Batel Engineering.</p>
-        <p>Código Open Source disponible en <a href="https://github.com/chaveirobatelcuritiba/aegis-core" target="_blank">GitHub</a>.</p>
-    </footer>
-
-</body>
-
-</html>
-
+        footer .links a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-family: 'Orbitron', sans
