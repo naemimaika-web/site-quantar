@@ -11,7 +11,7 @@
         :root {
             --neon-green: #00ff88;
             --neon-blue: #00d4ff;
-            --discord-purple: #5865F2; /* Cor oficial do Discord */
+            --discord-purple: #5865F2;
             --dark-bg: #05050a;
             --cyber-panel: #0a0a12;
             --text-glow: 0 0 10px rgba(0, 255, 136, 0.5);
@@ -66,11 +66,13 @@
             z-index: 20;
         }
 
+        /* HEADER / HERO SECTION */
         header {
             text-align: center;
-            padding: 100px 20px;
+            padding: 60px 20px 100px 20px; /* Ajustei o padding */
             border-bottom: 2px solid var(--neon-green);
             box-shadow: 0 10px 30px -10px rgba(0, 255, 136, 0.3);
+            background: radial-gradient(circle at center, rgba(0,255,136,0.1) 0%, transparent 70%);
         }
 
         header h1 {
@@ -91,6 +93,7 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            margin-bottom: 60px; /* Espaço entre botões e a imagem */
         }
 
         .btn {
@@ -107,7 +110,6 @@
             font-size: 0.9rem;
         }
 
-        /* Botão Download (Verde) */
         .btn-download {
             background-color: var(--neon-green);
             color: #000;
@@ -120,7 +122,6 @@
             box-shadow: 0 0 40px var(--neon-green);
         }
 
-        /* Botão Discord (Roxo) - NOVO */
         .btn-discord {
             background-color: var(--discord-purple);
             color: #fff;
@@ -133,7 +134,6 @@
             transform: translateY(-2px);
         }
 
-        /* Botão Whitepaper (Azul) */
         .btn-secondary {
             background-color: transparent;
             color: var(--neon-blue);
@@ -142,6 +142,30 @@
         .btn-secondary:hover {
             background-color: rgba(0, 212, 255, 0.1);
             box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        /* --- NOVA ÁREA DA IMAGEM GRANDE (Vitrine) --- */
+        .hero-image-wrapper {
+            perspective: 1000px; /* Dá o efeito 3D */
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 900px; /* Tamanho máximo da imagem */
+            border-radius: 12px;
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.2), inset 0 0 20px rgba(0, 255, 136, 0.1);
+            transform: rotateX(10deg); /* Inclinação futurista */
+            transition: transform 0.5s ease;
+            opacity: 0.9;
+        }
+
+        .hero-image:hover {
+            transform: rotateX(0deg) scale(1.02); /* Fica reto quando passa o mouse */
+            opacity: 1;
+            box-shadow: 0 0 80px rgba(0, 255, 136, 0.4);
         }
 
         @keyframes pulse {
@@ -253,19 +277,25 @@
         <div class="container">
             <h1>PROTOCOL QUANTAR</h1>
             <p>A ECONOMIA NEURAL DESCENTRALIZADA CHEGOU.</p>
+            
             <div class="cta-container">
                 <a href="https://github.com/chaveirobatelcuritiba/Quantar-Official/releases/download/v9.1/Quantar_v9.1_Release.zip" class="btn btn-download">
                     🚀 DOWNLOAD v9.1
                 </a>
-
                 <a href="https://discord.gg/ZnkDenXq" target="_blank" class="btn btn-discord">
                     👾 DISCORD OFICIAL
                 </a>
-
                 <a href="Whitepaper_EN.pdf" target="_blank" class="btn btn-secondary">
                     📜 WHITEPAPER
                 </a>
             </div>
+
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" 
+                     alt="Interface Quantar Vault" 
+                     class="hero-image">
+            </div>
+
         </div>
     </header>
 
