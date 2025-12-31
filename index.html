@@ -1,3 +1,13 @@
+Comandante, missão cumprida. 🦅
+
+Peguei o código que você me mandou e integrei a "Arena de Batalha" (Bitcoin vs Quantar).
+
+Agora o site está completo, mostrando o header, a imagem grande, a comparação técnica com a hiper-escassez de 18 Milhões e a seção de artigos.
+
+Aqui está o código final definitivo para o arquivo index.html. É só copiar e substituir tudo no GitHub.
+
+HTML
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -69,7 +79,7 @@
         /* HEADER / HERO SECTION */
         header {
             text-align: center;
-            padding: 60px 20px 100px 20px; /* Ajustei o padding */
+            padding: 60px 20px 100px 20px;
             border-bottom: 2px solid var(--neon-green);
             box-shadow: 0 10px 30px -10px rgba(0, 255, 136, 0.3);
             background: radial-gradient(circle at center, rgba(0,255,136,0.1) 0%, transparent 70%);
@@ -93,7 +103,7 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            margin-bottom: 60px; /* Espaço entre botões e a imagem */
+            margin-bottom: 60px;
         }
 
         .btn {
@@ -144,26 +154,25 @@
             box-shadow: 0 0 20px var(--neon-blue);
         }
 
-        /* --- NOVA ÁREA DA IMAGEM GRANDE (Vitrine) --- */
         .hero-image-wrapper {
-            perspective: 1000px; /* Dá o efeito 3D */
+            perspective: 1000px;
             margin-top: 20px;
             padding: 0 20px;
         }
 
         .hero-image {
             width: 100%;
-            max-width: 900px; /* Tamanho máximo da imagem */
+            max-width: 900px;
             border-radius: 12px;
             border: 2px solid var(--neon-green);
             box-shadow: 0 0 50px rgba(0, 255, 136, 0.2), inset 0 0 20px rgba(0, 255, 136, 0.1);
-            transform: rotateX(10deg); /* Inclinação futurista */
+            transform: rotateX(10deg);
             transition: transform 0.5s ease;
             opacity: 0.9;
         }
 
         .hero-image:hover {
-            transform: rotateX(0deg) scale(1.02); /* Fica reto quando passa o mouse */
+            transform: rotateX(0deg) scale(1.02);
             opacity: 1;
             box-shadow: 0 0 80px rgba(0, 255, 136, 0.4);
         }
@@ -174,6 +183,67 @@
             100% { box-shadow: 0 0 15px var(--neon-green); }
         }
 
+        /* --- ESTILOS DA ARENA DE COMBATE (Adicionado) --- */
+        .comparison-section {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, var(--dark-bg) 0%, rgba(0, 255, 136, 0.05) 50%, var(--dark-bg) 100%);
+            border-bottom: 1px solid #333;
+        }
+
+        .comparison-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            flex-wrap: wrap;
+        }
+
+        .battle-card {
+            flex: 1;
+            min-width: 300px;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .battle-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .badge {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-family: 'Orbitron';
+        }
+
+        .vs-badge {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .comparison-container { flex-direction: column; gap: 60px; }
+            .vs-badge { position: relative; left: auto; transform: none; margin: -30px 0; }
+        }
+
+        /* --- ESTILOS DOS ARTIGOS --- */
         .articles-section {
             padding: 80px 20px;
         }
@@ -298,6 +368,54 @@
 
         </div>
     </header>
+
+    <section class="comparison-section">
+        <h2 class="section-title" style="text-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-green);">A GUERRA PELA ESCASSEZ</h2>
+        
+        <div class="comparison-container">
+            
+            <div class="battle-card card-btc" style="border: 1px solid #5c3a0b; background: linear-gradient(180deg, rgba(247, 147, 26, 0.1) 0%, rgba(0,0,0,0.3) 100%);">
+                <h3 style="color: #f7931a; text-shadow: 0 0 10px rgba(247, 147, 26, 0.5);">BITCOIN</h3>
+                <span class="badge" style="background: #333; color: #f7931a; border: 1px solid #f7931a;">Legado (2009)</span>
+                
+                <ul class="battle-list" style="text-align: left; margin-top: 30px;">
+                    <li style="border-bottom: 1px solid rgba(247, 147, 26, 0.2); padding-bottom: 15px; margin-bottom: 15px;">
+                        <strong style="color: #f7931a; display: block;">🔓 Criptografia Base</strong>
+                        <span style="color: #aaa; font-family: 'Orbitron'; font-size: 1.1rem;">Curvas Elípticas (ECDSA)</span>
+                        <p style="margin: 5px 0 0 0; font-size: 0.85rem; color: #c44;">⚠️ Quebrável por Quânticos</p>
+                    </li>
+                    
+                    <li style="border-bottom: 1px solid rgba(247, 147, 26, 0.2); padding-bottom: 15px; margin-bottom: 15px;">
+                        <strong style="color: #f7931a; display: block;">💰 Supply Total</strong>
+                        <span style="color: #fff; font-size: 1.4rem; font-weight: bold;">21.000.000</span>
+                        <p style="margin: 5px 0 0 0; font-size: 0.85rem; color: #aaa;">Escasso.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="vs-badge" style="background: transparent; color: #fff; font-size: 2.5rem; text-shadow: 0 0 20px var(--neon-blue); animation: pulse 1.5s infinite;">⚡VS⚡</div>
+
+            <div class="battle-card card-qtr" style="border: 2px solid var(--neon-green); background: linear-gradient(180deg, rgba(0, 255, 136, 0.15) 0%, rgba(0,0,0,0.5) 100%); box-shadow: 0 0 40px rgba(0, 255, 136, 0.2);">
+                <h3 style="color: var(--neon-green); text-shadow: 0 0 20px var(--neon-green);">QUANTAR</h3>
+                <span class="badge" style="background: var(--neon-green); color: #000; font-weight: bold; box-shadow: 0 0 15px var(--neon-green);">Elite (2025)</span>
+                
+                <ul class="battle-list" style="text-align: left; margin-top: 30px;">
+                    <li style="border-bottom: 1px solid rgba(0, 255, 136, 0.3); padding-bottom: 15px; margin-bottom: 15px;">
+                        <strong style="color: var(--neon-green); display: block;">🛡️ Criptografia Pós-Quântica</strong>
+                        <span style="color: #fff; font-family: 'Orbitron'; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-blue);">Lattice-Based Cryptography</span>
+                        <p style="margin: 5px 0 0 0; font-size: 0.85rem; color: var(--neon-green);">✅ Blindagem Militar Indestrutível</p>
+                    </li>
+                    
+                    <li style="border-bottom: 1px solid rgba(0, 255, 136, 0.3); padding-bottom: 15px; margin-bottom: 15px;">
+                        <strong style="color: var(--neon-green); display: block;">💎 Supply Total</strong>
+                        <span style="color: #fff; font-size: 1.8rem; font-weight: bold; text-shadow: 0 0 15px var(--neon-green);">18.000.000</span>
+                        <p style="margin: 5px 0 0 0; font-size: 0.85rem; color: var(--neon-blue);">🚀 <strong>MAIS RARO QUE O BITCOIN</strong></p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
 
     <section class="articles-section container">
         <h2 class="section-title">INTELIGÊNCIA DA REDE</h2>
