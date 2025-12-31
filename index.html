@@ -11,6 +11,7 @@
         :root {
             --neon-green: #00ff88;
             --neon-blue: #00d4ff;
+            --discord-purple: #5865F2; /* Cor oficial do Discord */
             --dark-bg: #05050a;
             --cyber-panel: #0a0a12;
             --text-glow: 0 0 10px rgba(0, 255, 136, 0.5);
@@ -94,7 +95,7 @@
 
         .btn {
             display: inline-block;
-            padding: 15px 40px;
+            padding: 15px 30px;
             font-family: 'Orbitron', sans-serif;
             font-weight: bold;
             text-decoration: none;
@@ -103,8 +104,10 @@
             text-transform: uppercase;
             position: relative;
             overflow: hidden;
+            font-size: 0.9rem;
         }
 
+        /* Botão Download (Verde) */
         .btn-download {
             background-color: var(--neon-green);
             color: #000;
@@ -112,18 +115,30 @@
             box-shadow: 0 0 20px var(--neon-green);
             animation: pulse 2s infinite;
         }
-
         .btn-download:hover {
             background-color: #fff;
             box-shadow: 0 0 40px var(--neon-green);
         }
 
+        /* Botão Discord (Roxo) - NOVO */
+        .btn-discord {
+            background-color: var(--discord-purple);
+            color: #fff;
+            border: 2px solid var(--discord-purple);
+            box-shadow: 0 0 15px var(--discord-purple);
+        }
+        .btn-discord:hover {
+            background-color: #4752c4;
+            box-shadow: 0 0 30px var(--discord-purple);
+            transform: translateY(-2px);
+        }
+
+        /* Botão Whitepaper (Azul) */
         .btn-secondary {
             background-color: transparent;
             color: var(--neon-blue);
             border: 2px solid var(--neon-blue);
         }
-
         .btn-secondary:hover {
             background-color: rgba(0, 212, 255, 0.1);
             box-shadow: 0 0 20px var(--neon-blue);
@@ -240,10 +255,15 @@
             <p>A ECONOMIA NEURAL DESCENTRALIZADA CHEGOU.</p>
             <div class="cta-container">
                 <a href="https://github.com/chaveirobatelcuritiba/Quantar-Official/releases/download/v9.1/Quantar_v9.1_Release.zip" class="btn btn-download">
-                    🚀 INICIAR SISTEMA (DOWNLOAD v9.1)
+                    🚀 DOWNLOAD v9.1
                 </a>
+
+                <a href="https://discord.gg/ZnkDenXq" target="_blank" class="btn btn-discord">
+                    👾 DISCORD OFICIAL
+                </a>
+
                 <a href="Whitepaper_EN.pdf" target="_blank" class="btn btn-secondary">
-                    📜 ACESSAR WHITEPAPER
+                    📜 WHITEPAPER
                 </a>
             </div>
         </div>
@@ -279,8 +299,9 @@
     <footer>
         <div class="container">
             <div class="links">
-                <a href="https://github.com/chaveirobatelcuritiba/Quantar-Official" target="_blank">GITHUB OFICIAL</a>
-                <a href="Whitepaper_EN.pdf" target="_blank">WHITEPAPER (PDF)</a>
+                <a href="https://github.com/chaveirobatelcuritiba/Quantar-Official" target="_blank">GITHUB</a>
+                <a href="https://discord.gg/ZnkDenXq" target="_blank">DISCORD</a>
+                <a href="Whitepaper_EN.pdf" target="_blank">WHITEPAPER</a>
             </div>
             <p>© 2024 Quantar Protocol Foundation. Operando nas sombras da descentralização.</p>
         </div>
